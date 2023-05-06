@@ -1,35 +1,39 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import Home from './pages/home';
+import Quiz from './pages/quiz';
+import Result from './pages/result';
 
-export default function App() {
-  const userData = []
+import { createAppContainer } from "react-navigation";
+import { createStackNavigator } from "react-navigation-stack";
+
+const AppNavigator = createStackNavigator(
+  {
+    Home: Home,
+    Quiz: Quiz,
+    Result: Result,
+  },
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: "#800000",
+      },
+      headerTintColor: "#fffff0",
+    },
+  }
+);
+
+const Navigator = createAppContainer(AppNavigator);
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Hello world</Text>
-      <Text>Hello world</Text>
-      <TextInput placeholder='heda' style={styles.input} />
-      <Button title='Submit' style={styles.submit_btn} />
-      <StatusBar style="auto" />
-    </View>
-  );
+    <Navigator />
+  )
 }
+
+export default App
 
 const styles = StyleSheet.create({
   container: {
-    margin: 10,
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  input: {
-    backgroundColor: '#000', 
-    alignItems: 'center',
-    width: '100%',
-  },
-  submit_btn: {
-    flex: 1,
-    alignItems: 'left',
   }
-  
-});
+})
