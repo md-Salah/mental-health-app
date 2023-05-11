@@ -6,7 +6,9 @@ const Home = (props) => {
   const items = [{ title: "Enjoy reading articles about anxiety", uri: 'https://static.vecteezy.com/system/resources/previews/003/206/208/original/quiz-time-neon-signs-style-text-free-vector.jpg' },
   { title: "Read books to understand what psychiatrist says", uri: 'https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80' },
   { title: "Take a self test", uri: 'https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80' },
-  { title: "Take a self test", uri: 'https://cdn-fldea.nitrocdn.com/MxvBLpTIkWFQHkPDzlLThkPHGfFafmSe/assets/images/optimized/rev-64ddc46/wp-content/uploads/2022/09/difference-between-anxiety-and-anger.png' },
+  { title: "Difference Between Anxiety And Anger", uri: 'https://cdn-fldea.nitrocdn.com/MxvBLpTIkWFQHkPDzlLThkPHGfFafmSe/assets/images/optimized/rev-64ddc46/wp-content/uploads/2022/09/difference-between-anxiety-and-anger.png' },
+  { title: "Clinical Depression", uri: 'https://www.bing.com/th?id=OCII.8D5C9E3A4AAA9E6608CA8098AD0013D1E9CC893B9DC33CF83851C9D34D2717FD&pid=3.1&w=490&h=340&p=0' },
+
   ]
 
   return (

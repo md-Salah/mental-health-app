@@ -1,17 +1,23 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import Home from './pages/home';
-import Quiz from './pages/quiz';
-import Result from './pages/result';
+import Home from './pages/Home';
+import Quiz from './pages/Quiz';
+import Result from './pages/Result';
+import About from './pages/About';
+import DoctorDetails from './pages/DoctorDetails';
+import Doctors from './pages/Doctors';
 
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 
 const AppNavigator = createStackNavigator(
   {
-    Home: Home,
-    Quiz: Quiz,
-    Result: Result,
+    // Home: Home,
+    //Quiz: Quiz,
+    //Result: Result,
+    //About: About,
+    DoctorDetails: DoctorDetails,
+    // Doctors: Doctors
   },
   {
     defaultNavigationOptions: {
