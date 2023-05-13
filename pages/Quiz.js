@@ -1,7 +1,7 @@
 import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-export const Quiz = () => {
+const Quiz = () => {
   return (
     <View style={styles.container}>
       <View style={styles.top}>

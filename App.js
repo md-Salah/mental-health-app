@@ -1,9 +1,6 @@
 import "react-native-gesture-handler";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { Button, Header } from "react-native-elements";
-// import { createAppContainer } from "react-navigation";
-// import { createStackNavigator } from "react-navigation-stack";
+import { StyleSheet } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 
@@ -14,32 +11,6 @@ import About from "./pages/About";
 import DoctorDetails from "./pages/DoctorDetails";
 import Doctors from "./pages/Doctors";
 
-
-// const AppNavigator = createStackNavigator(
-//   {
-//     Home: Home,
-//     Quiz: Quiz,
-//     Result: Result,
-//     About: About,
-//     DoctorDetails: DoctorDetails,
-//     Doctors: Doctors
-//   },
-//   {
-//     defaultNavigationOptions: {
-//       headerStyle: {
-//         backgroundColor: "#800000",
-//       },
-//       headerTintColor: "#fffff0",
-//       headerLeft: () => (
-//         <MenuButton />
-//       ),
-//     },
-//   }
-// );
-
-// const Navigator = createAppContainer(AppNavigator);
-
-// rgb(242, 242, 242)
 
 const MyTheme = {
   dark: false,
