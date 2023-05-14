@@ -1,86 +1,187 @@
-import { TouchableOpacity, StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import { TouchableOpacity, StyleSheet, Button, Text, View } from "react-native";
+import React, { useState } from "react";
 
 const Quiz = () => {
+  let questions = [
+    {
+      title: "Age",
+      option: ["18-20", "21-23", "24-26", "27-29"],
+      selected: "",
+      required: true,
+    },
+    {
+      title: "Academic Year",
+      option: ["1st", "2nd", "3rd", "4th"],
+      selected: "",
+      required: true,
+    },
+    {
+      title: "Department",
+      option: [
+        "Engineering",
+        "Medical",
+        "Business Administration",
+        "Bachelor of Science",
+        "Bachelor of Social Sciences",
+      ],
+      selected: "",
+      required: false,
+    },
+    {
+      title: "Are you happy about your academic condition?",
+      option: ["Yes", "No"],
+      selected: "",
+      required: true,
+    },
+  ];
+
+  const [unselectedQuestions, setUnselectedQuestions] = useState(questions);
+  const [result, setResult] = useState(false);
+
+  const optionPress = ({ title, option }) => {
+    setUnselectedQuestions(
+      unselectedQuestions.filter((q) => q.title !== title)
+    );
+    questions = questions.map((q) => {
+      if (q.title === title) {
+        q.selected = option;
+      }
+      return q;
+    });
+
+    // End of questions, Show result
+    if (unselectedQuestions.length === 1) {
+      setResult(true);
+      console.log(questions)
+    }
+  };
+
   return (
     <View style={styles.container}>
-      <View style={styles.top}>
-        <Text style={styles.question}>Q. Imagine this is a really cool question</Text>
-      </View>
-      <View style={styles.options}>
-        <TouchableOpacity style={styles.option}>
-          <Text style={styles.optionText}>Cool option 1</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.option}>
-          <Text style={styles.optionText}>Cool option 1</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.option}>
-          <Text style={styles.optionText}>Cool option 1</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.option}>
-          <Text style={styles.optionText}>Cool option 1</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.buttom}>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>SKIP</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>NEXT</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  )
-}
+      {unselectedQuestions.map((question, index) => (
+        <View style={styles.card} key={index}>
+          {/* Question */}
+          <View style={styles.top}>
+            <Text style={styles.question}>{question.title}</Text>
+          </View>
 
-export default Quiz
+          {/* Choose Option */}
+          <View style={styles.middle}>
+            {question.option.map((op) => (
+              <TouchableOpacity
+                style={styles.option}
+                key={op}
+                onPress={() =>
+                  optionPress({ title: question.title, option: op })
+                }
+              >
+                <Text style={styles.optionText}>{op}</Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+
+          <View style={styles.bottom}>
+            {/* Question Counter */}
+            <View>
+              <Text style={styles.counter}>
+                {questions.length -
+                  unselectedQuestions.length +
+                  " / " +
+                  questions.length}
+              </Text>
+            </View>
+
+            {/* Skip Optional */}
+            {question.required === false && (
+              <TouchableOpacity
+                style={styles.skipBtn}
+                onPress={() =>
+                  optionPress({ title: question.title, option: " " })
+                }
+              >
+                <Text style={{ color: "#800000", fontWeight: "bold" }}>
+                  Skip
+                </Text>
+              </TouchableOpacity>
+            )}
+
+
+          </View>
+        </View>
+      ))}
+
+      {/* Result */}
+      {result && <Text>Result Page</Text>}
+    </View>
+  );
+};
+
+export default Quiz;
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: 20,
-    paddingTop: 30,
-    height: '100%',
+    height: "100%",
+  },
+  card: {
+    marginTop: 40,
+    marginBottom: 30,
+    marginHorizontal: 10,
+    backgroundColor: "#800000",
+    borderRadius: 5,
+    padding: 20,
+    margin: 0.5,
+    height: "90%",
   },
   top: {
-    marginVertical: 16,
-  },
-  options: {
-    marginVertical: 16,
-    flex: 1,
-  },
-  buttom: {
-    marginBottom: 12,
-    paddingVertical: 16,
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-  },
-  button: {
-    backgroundColor: '#3C1101',
-    padding: 12,
-    paddingHorizontal: 16,
-    borderRadius: 16,
-    alignItems: 'center',
-    marginBottom: 30,
-  },
-  buttonText: {
-    fontSize: 11,
-    fontWeight: '600',
-    color: 'white',
+    height: "20%",
+    paddingVertical: 5,
   },
   question: {
-    fontSize: 20,
+    marginTop: 10,
+    fontSize: 22,
+    color: "#fff",
+    textAlign: "center",
+    fontWeight: "semibold",
+  },
+  middle: {
+    height: "60%",
+    paddingVertical: 30,
+  },
+  options: {
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "space-between",
   },
   option: {
-    backgroundColor: 'black',
-    paddingVertical: 12,
+    backgroundColor: "white",
     marginVertical: 6,
-    paddingHorizontal: 12,
-    borderRadius: 12,
+    paddingVertical: 12,
+    borderRadius: 5,
   },
   optionText: {
+    textAlign: "center",
     fontSize: 16,
-    fontWeight: '500',
-    color: 'white',
-  }
-
-})
+    fontWeight: "500",
+    color: "#800000",
+  },
+  bottom: {
+    height: "20%",
+    flex: 1,
+    justifyContent: "space-around",
+    alignItems: "center",
+  },
+  counter: {
+    color: "white",
+    fontSize: 16,
+    textAlign: "center",
+  },
+  skipBtn: {
+    width: "40%",
+    backgroundColor: "white",
+    paddingVertical: 10,
+    paddingHorizontal: 30,
+    borderRadius: 5,
+    alignItems: "center",
+    marginBottom: 10,
+  },
+});
