@@ -1,10 +1,8 @@
+import { Text, View } from 'react-native';
+import Quiz from '../components/Quiz'
 
-function SelfTest() {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+const SelfTest = () => {
+  return <Quiz />;
+};
 
-export default SelfTest
+export default SelfTest;

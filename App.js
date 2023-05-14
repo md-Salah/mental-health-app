@@ -5,7 +5,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 
 import Home from "./pages/Home";
-import Quiz from "./pages/Quiz";
+import SelfTest from "./pages/SelfTest";
 import Result from "./pages/Result";
 import About from "./pages/About";
 import DoctorDetails from "./pages/DoctorDetails";
@@ -31,7 +31,7 @@ const App = () => {
     <NavigationContainer theme={MyTheme}>
       <Drawer.Navigator useLegacyImplementation initialRouteName="Home">
         <Drawer.Screen name="Home" component={Home} />
-        <Drawer.Screen name="Quiz" component={Quiz} />
+        <Drawer.Screen name="Anger & Anxiety Assessment" component={SelfTest} /> 
         <Drawer.Screen name="Result" component={Result} />
         <Drawer.Screen name="Doctors" component={Doctors} />
         <Drawer.Screen name="DoctorDetails" component={DoctorDetails} />
