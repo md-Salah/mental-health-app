@@ -1,6 +1,5 @@
 import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import Title from '../components/title';
 
 const Home = (props) => {
   const items = [{ title: "Enjoy reading articles about anxiety", uri: 'https://static.vecteezy.com/system/resources/previews/003/206/208/original/quiz-time-neon-signs-style-text-free-vector.jpg' },

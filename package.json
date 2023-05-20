@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@expo/webpack-config": "^18.0.1",
+    "@react-native-community/datetimepicker": "6.7.3",
     "@react-navigation/drawer": "^6.6.2",
     "@react-navigation/native": "^6.1.6",
     "expo": "~48.0.15",
@@ -20,6 +21,7 @@
     "react-native-dropdown-picker": "^5.4.6",
     "react-native-elements": "^3.4.3",
     "react-native-gesture-handler": "~2.9.0",
+    "react-native-modal-datetime-picker": "^15.0.1",
     "react-native-reanimated": "~2.14.4",
     "react-native-web": "~0.18.10",
     "react-navigation": "^4.4.4",
