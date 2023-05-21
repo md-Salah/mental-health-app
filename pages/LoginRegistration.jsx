@@ -1,16 +1,22 @@
 import { StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
+import { getAuth } from "firebase/auth";
+
+import { app } from "../firebaseConfig";
 import Authentication from "../components/Authentication";
+import LogOut from "../components/LogOut";
 
 const LoginRegistration = ({ navigation }) => {
-  const [authorized, setAuthorized] = useState(false);
+
+  const auth = getAuth(app);
+  const [user, setUser] = useState(auth.currentUser);
 
   return (
     <View>
-      {authorized ? (
-        <Text>Logged In</Text>
+      {user === null ? (
+        <Authentication navigation={navigation} setUser={setUser} auth={auth} />
       ) : (
-        <Authentication navigation={navigation} setAuthorized={setAuthorized} />
+        <LogOut navigation={navigation} user={user} setUser={setUser} auth={auth} />
       )}
     </View>
   );

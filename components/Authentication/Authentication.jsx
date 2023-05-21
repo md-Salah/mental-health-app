@@ -11,49 +11,52 @@ import {
 import React, { useEffect, useState } from "react";
 import { CheckBox } from "react-native-elements";
 
-import { app } from "../../firebaseConfig";
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  updateProfile,
 } from "firebase/auth";
+import BouncyCheckbox from "react-native-bouncy-checkbox";
 
-const Authentication = ({ navigation, setAuthorized }) => {
+const Authentication = ({ navigation, setUser, auth }) => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(true);
   const [alreadyMember, setAlreadyMember] = useState(true);
 
-  const auth = getAuth(app);
-
-  const toggle = ()=>{
-    setAlreadyMember(!alreadyMember)
-  }
+  const toggle = () => {
+    setAlreadyMember(!alreadyMember);
+  };
 
   const handleLogin = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredentials) => {
-        // const email = userCredentials.user.email;
-        // alert("Login success");
-        navigation.navigate('Home')
-        setAuthorized(true)
+        setUser(userCredentials.user);
+        navigation.navigate("Home");
       })
       .catch((error) => {
         alert(error.message);
-        // console.log(error.code, error.message);
       });
-    };
-    const handleSingUp = () => {
-      createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // const user = userCredential.user;
-        // alert("Sign Up Success");
-        setAuthorized(true)
+  };
+  const handleSingUp = () => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        updateProfile(auth.currentUser, {
+          displayName: name,
+        })
+          .then(() => {
+            setUser(auth.currentUser);
+            navigation.navigate("Home");
+          })
+          .catch((error) => {
+            alert(error.message);
+          });
       })
       .catch((error) => {
         alert(error.message);
-        // console.log(error.code, error.message);
       });
   };
 
@@ -63,7 +66,6 @@ const Authentication = ({ navigation, setAuthorized }) => {
         <Image source={require("../../images/logo.jpg")} style={styles.logo} />
       </View>
       <View style={styles.bodyContainer}>
-
         {/* Welcome text */}
         <Text style={styles.welcome}>Welcome to Mental Health App</Text>
         <Text style={styles.subtitle}>
@@ -72,6 +74,14 @@ const Authentication = ({ navigation, setAuthorized }) => {
 
         {/* Input Email & Password */}
         <View style={{ marginTop: 40 }}>
+          {!alreadyMember && (
+            <TextInput
+              value={name}
+              onChangeText={(text) => setName(text)}
+              placeholder="Name"
+              style={styles.input}
+            />
+          )}
           <TextInput
             value={email}
             onChangeText={(text) => setEmail(text)}
@@ -89,14 +99,21 @@ const Authentication = ({ navigation, setAuthorized }) => {
 
         {/* Remember me & forgot password */}
         <View style={styles.helpContainer}>
-          <TouchableOpacity style={styles.checkboxContainer}>
-            <CheckBox
-              value={rememberMe}
-              onChange={setRememberMe}
-              style={styles.checkbox}
-            />
-            <Text style={styles.label}>Remember Me</Text>
-          </TouchableOpacity>
+          <BouncyCheckbox
+            size={25}
+            fillColor="#FC734D"
+            unfillColor="#FFFFFF"
+            text="Remember Me"
+            iconStyle={{ borderColor: "#FC734D", borderRadius: 5 }}
+            innerIconStyle={{ borderWidth: 2, borderRadius: 5 }}
+            textStyle={{
+              textDecorationLine: "none",
+            }}
+            onPress={(isChecked) => {
+              setRememberMe(isChecked);
+            }}
+          />
+
           <TouchableOpacity>
             <Text style={styles.forgotPassword}>Forgot Password</Text>
           </TouchableOpacity>
@@ -126,15 +143,14 @@ const Authentication = ({ navigation, setAuthorized }) => {
               }}
             >
               {alreadyMember ? "Not a Member?" : "Already have an account?"}
-              </Text>
-              <TouchableOpacity onPress={toggle}>
+            </Text>
+            <TouchableOpacity onPress={toggle}>
               <Text style={{ color: "#FC734D", fontWeight: "600" }}>
                 {alreadyMember ? "Sign Up" : "Sign In"}
               </Text>
             </TouchableOpacity>
           </View>
         </View>
-
       </View>
     </KeyboardAvoidingView>
   );
@@ -145,10 +161,12 @@ export default Authentication;
 const styles = StyleSheet.create({
   container: {
     margin: 30,
+    height: "92%",
+    flexDirection: "column",
+    justifyContent: "center",
   },
   logoContainer: {
     alignItems: "center",
-    marginTop: 20,
   },
   logo: {
     width: 150,
