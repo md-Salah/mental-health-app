@@ -100,7 +100,7 @@ const Authentication = ({ navigation, setUser, auth }) => {
         {/* Remember me & forgot password */}
         <View style={styles.helpContainer}>
           <BouncyCheckbox
-            size={25}
+            size={20}
             fillColor="#FC734D"
             unfillColor="#FFFFFF"
             text="Remember Me"
@@ -108,6 +108,7 @@ const Authentication = ({ navigation, setUser, auth }) => {
             innerIconStyle={{ borderWidth: 2, borderRadius: 5 }}
             textStyle={{
               textDecorationLine: "none",
+              fontSize: 14,
             }}
             onPress={(isChecked) => {
               setRememberMe(isChecked);
