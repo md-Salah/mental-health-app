@@ -1,6 +1,7 @@
 import { TouchableOpacity, StyleSheet, Button, Text, View } from "react-native";
 import React, { useState } from "react";
 import {qtn} from './questions'
+import Result from "../Result/Result";
 
 const Quiz = () => {
 
@@ -22,6 +23,12 @@ const Quiz = () => {
       // console.log(questions);
     }
   };
+
+  const resetQuiz = () => {
+    setQuestions(qtn);
+    setCounter(0);
+    setResult(false);
+  }
 
   const QuestionCard = ({ question }) => {
     return (
@@ -69,7 +76,7 @@ const Quiz = () => {
   return (
     <View style={styles.container}>
       {result ? (
-        <Text>Result Page</Text>
+        <Result resetQuiz={resetQuiz} />
       ) : (
         <QuestionCard question={questions[counter]} />
       )}

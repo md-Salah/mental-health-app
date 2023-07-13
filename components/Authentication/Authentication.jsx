@@ -76,9 +76,9 @@ const Authentication = ({ navigation, setUser, auth }) => {
       </View>
       <View style={styles.bodyContainer}>
         {/* Welcome text */}
-        <Text style={styles.welcome}>Welcome to Mental Health App</Text>
+        <Text style={styles.welcome}>{alreadyMember? "Welcome to Mental Health App": "Register" }</Text>
         <Text style={styles.subtitle}>
-          Please enter your address below to start using app
+          Please enter your credential below to start using the app
         </Text>
 
         {/* Input Email & Password */}
@@ -189,6 +189,8 @@ const styles = StyleSheet.create({
 
   welcome: {
     fontSize: 24,
+    textAlign: "center",
+    fontWeight: "bold",
   },
 
   subtitle: {
