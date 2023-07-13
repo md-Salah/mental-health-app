@@ -1,8 +1,10 @@
 import "react-native-gesture-handler";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 import Home from "./pages/Home";
 import SelfTest from "./pages/SelfTest";
@@ -25,19 +27,24 @@ const MyTheme = {
 };
 
 const Drawer = createDrawerNavigator();
+const Stack = createNativeStackNavigator();
 
 const App = () => {
 
   return (
     <NavigationContainer theme={MyTheme}>
-      <Drawer.Navigator useLegacyImplementation initialRouteName="Home">
-        <Drawer.Screen name="Login" component={LoginRegistration} />
+      <Drawer.Navigator useLegacyImplementation initialRouteName="Logout">
         <Drawer.Screen name="Home" component={Home} />
         <Drawer.Screen name="Anger & Anxiety Assessment" component={SelfTest} />
         <Drawer.Screen name="Result" component={Result} />
         <Drawer.Screen name="Doctors" component={Doctors} />
         <Drawer.Screen name="DoctorDetails" component={DoctorDetails} />
         <Drawer.Screen name="About" component={About} />
+        <Drawer.Screen
+          name="Logout"
+          component={LoginRegistration}
+          options={{ headerShown: false }}
+        />
       </Drawer.Navigator>
     </NavigationContainer>
   );
