@@ -1,33 +1,52 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { View, Text, StyleSheet, Image } from 'react-native';
 
-const About = () => {
+const AboutPage = () => {
   return (
-    <View>
-      <Text style={styles.about}>
-        Welcome to Mindful, a mental health app that helps you improve your well-being and cope with common issues such as stress, anxiety, depression, and more.
-        Mindful is based on evidence-based therapies such as cognitive behavioral therapy (CBT), mindfulness-based stress reduction (MBSR), and positive psychology. With Mindful, you can access a variety of features such as:
-        {"\n"}{"\n"}
-        - Daily guided meditations to help you relax and focus.{"\n"}
-        - Mood tracking to monitor your emotions and identify patterns.{"\n"}
-        - Personalized goals and activities to improve your mental health.{"\n"}
-        - Online chat with licensed therapists and peer support groups.{"\n"}
-        - Educational articles and videos to learn more about mental health.{"\n"}
-        {"\n"}
-        Mindful is easy to use and affordable.
-        You can download the app for free and try it for 7 days with no commitment.
-        After that, you can choose a subscription plan that suits your needs and budget.
-        Whether you want to boost your mood, reduce stress, overcome challenges, or simply live a happier life, Mindful is here to help you achieve your goals and support you along the way.
+    <View style={styles.container}>
+      <View style={styles.logoContainer}>
+        <Image source={require("../images/logo.jpg")} style={styles.logo} />
+      </View>
+      <Text style={styles.title}>About US</Text>
+      <Text style={styles.description}>
+        The APP is developed as part of a thesis titled "Development of an Anger and Anxiety Disorder Prediction Scheme using Machine Learning and Mobile Application for Mental Healthcare," our app aims to provide mental health support to those in need. It offers comprehensive guidelines, including exercises and emergency support, to assist individuals with managing their mental health effectively.
       </Text>
-    </View >
-  )
-}
-
-export default About
+      <Text style={styles.description}>
+        Designed and Developed By:{"\n"}
+        MOHAMMAD SALAH UDDIN{"\n"}
+        CSE 2017, CUET{"\n"}
+        Contact:{"\n"}
+        mdsalah.connect@gmail.com
+      </Text>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
-  about: {
-    padding: 4,
-    marginHorizontal: 6,
-  }
-})
+  container: {
+    flex: 1,
+    padding: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  logoContainer: {
+    alignItems: "center",
+  },
+  logo: {
+    width: 150,
+    height: 110,
+  },
+  title: {
+    paddingTop: 20,
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 16,
+  },
+  description: {
+    fontSize: 16,
+    textAlign: 'center',
+    paddingVertical: 15,
+  },
+});
+
+export default AboutPage;
