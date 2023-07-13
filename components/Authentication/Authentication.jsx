@@ -26,12 +26,15 @@ const Authentication = ({ navigation, setUser, auth }) => {
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(true);
   const [alreadyMember, setAlreadyMember] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const toggle = () => {
     setAlreadyMember(!alreadyMember);
   };
 
   const handleLogin = () => {
+    setLoading(true);
+
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredentials) => {
         setUser(userCredentials.user);
@@ -39,9 +42,13 @@ const Authentication = ({ navigation, setUser, auth }) => {
       })
       .catch((error) => {
         alert(error.message);
+        setLoading(false);
       });
+
   };
   const handleSingUp = () => {
+    setLoading(true);
+
     createUserWithEmailAndPassword(auth, email, password)
       .then(() => {
         updateProfile(auth.currentUser, {
@@ -53,10 +60,12 @@ const Authentication = ({ navigation, setUser, auth }) => {
           })
           .catch((error) => {
             alert(error.message);
+            setLoading(false);
           });
       })
       .catch((error) => {
         alert(error.message);
+        setLoading(false);
       });
   };
 
@@ -124,16 +133,16 @@ const Authentication = ({ navigation, setUser, auth }) => {
         <View style={styles.btnContainer}>
           {alreadyMember ? (
             <TouchableOpacity style={styles.button} onPress={handleLogin}>
-              <Text style={styles.buttonText}>Sign In</Text>
+              <Text style={styles.buttonText}>{loading ? '...' : 'Sign In'}</Text>
             </TouchableOpacity>
           ) : (
             <TouchableOpacity style={styles.button} onPress={handleSingUp}>
-              <Text style={styles.buttonText}>Sign Up</Text>
+              <Text style={styles.buttonText}>{loading ? '...' : 'Sign Up'}</Text>
             </TouchableOpacity>
           )}
         </View>
 
-        {/* Aready a member */}
+        {/* Already a member */}
         <View style={{ marginTop: 18 }}>
           <View style={{ flexDirection: "row", justifyContent: "center" }}>
             <Text
