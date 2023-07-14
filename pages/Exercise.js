@@ -114,8 +114,9 @@ const styles = StyleSheet.create({
   boxImage: {
     width: "100%",
     height: "100%",
-    borderRadius: 5,
+    borderRadius: 10,
     opacity: 0.9,
+    overflow: 'hidden'
   },
   boxText: {
     width: "100%",
@@ -127,7 +128,6 @@ const styles = StyleSheet.create({
     color: "white",
     paddingVertical: 16,
     paddingHorizontal: 3,
-    opacity: 0.8
   },
 
   // Exercise container style

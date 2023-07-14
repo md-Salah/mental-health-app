@@ -121,10 +121,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 15,
     borderRadius: 5,
+    overflow: 'hidden',
   },
   img: {
     width: "100%",
     height: 180,
+    borderRadius: 5,
+    overflow: 'hidden',
   },
   shadowBox: {
     backgroundColor: '#1A2421',
