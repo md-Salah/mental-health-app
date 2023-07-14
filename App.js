@@ -37,7 +37,7 @@ const App = () => {
         <Drawer.Screen name="Home" component={Home} />
         <Drawer.Screen name="Anger & Anxiety Assessment" component={SelfTest} />
         <Drawer.Screen name="Doctors" component={Doctors} />
-        <Drawer.Screen name="DoctorDetails" component={DoctorDetails} />
+        <Drawer.Screen name="Doctor Details" component={DoctorDetails} />
         <Drawer.Screen name="Emergency Contact" component={EmergencyContactPage} />
         <Drawer.Screen name="About" component={About} />
         <Drawer.Screen
