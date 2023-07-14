@@ -15,6 +15,9 @@ import LoginRegistration from "./pages/LoginRegistration";
 import EmergencyContactPage from "./pages/Emergency";
 import HospitalList from "./pages/HospitalList";
 import ReadArticle from "./pages/ReadArticle";
+import AppointmentPendingList from "./pages/AppointmentPendingList";
+import Exercise from "./pages/Exercise";
+import SmartHealth from "./pages/SmartHealth";
 
 const MyTheme = {
   dark: false,
@@ -32,7 +35,6 @@ const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
 
 const App = () => {
-
   return (
     <NavigationContainer theme={MyTheme}>
       <Drawer.Navigator useLegacyImplementation initialRouteName="Logout">
@@ -42,7 +44,16 @@ const App = () => {
         <Drawer.Screen name="Hospital List" component={HospitalList} />
         <Drawer.Screen name="Doctor Details" component={DoctorDetails} />
         <Drawer.Screen name="Readings" component={ReadArticle} />
-        <Drawer.Screen name="Emergency Contact" component={EmergencyContactPage} />
+        <Drawer.Screen name="SmartHealth" component={SmartHealth} />
+        <Drawer.Screen
+          name="Emergency Contact"
+          component={EmergencyContactPage}
+        />
+        <Drawer.Screen
+          name="AppointmentPendingList"
+          component={AppointmentPendingList}
+        />
+        <Drawer.Screen name="Exercise" component={Exercise} />
         <Drawer.Screen name="About" component={About} />
         <Drawer.Screen
           name="Logout"
