@@ -53,7 +53,7 @@ const App = () => {
           name="AppointmentPendingList"
           component={AppointmentPendingList}
         />
-        <Drawer.Screen name="Exercise" component={Exercise} />
+        <Drawer.Screen name="Physical Exercise" component={Exercise} />
         <Drawer.Screen name="About" component={About} />
         <Drawer.Screen
           name="Logout"

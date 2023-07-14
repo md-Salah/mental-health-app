@@ -4,7 +4,7 @@ import { Image, StyleSheet, Text, TouchableOpacity, View, ImageBackground } from
 const Home = ({navigation}) => {
   const boxesData = [
     { nav: 'Anger & Anxiety Assessment', text: "Take a Self Test (Anger & Anxiety Assessment)", image: 'https://static.vecteezy.com/system/resources/previews/003/206/208/original/quiz-time-neon-signs-style-text-free-vector.jpg' },
-    { nav: 'Home', text: "Explore Daily Exercise for a Healthy Life", image: 'https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80' },
+    { nav: 'Physical Exercise', text: "Explore Daily Exercise for a Healthy Life", image: 'https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80' },
     { nav: 'Doctors', text: "Find Doctor", image: 'https://cdn-fldea.nitrocdn.com/MxvBLpTIkWFQHkPDzlLThkPHGfFafmSe/assets/images/optimized/rev-64ddc46/wp-content/uploads/2022/09/difference-between-anxiety-and-anger.png' },
     { nav: 'Hospital List', text: "Find Hospital", image: 'https://cdn-fldea.nitrocdn.com/MxvBLpTIkWFQHkPDzlLThkPHGfFafmSe/assets/images/optimized/rev-64ddc46/wp-content/uploads/2022/09/difference-between-anxiety-and-anger.png' },
     { nav: 'Readings', text: "Read Articles About Anxiety, Anger and Symptomps", image: 'https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80' },
