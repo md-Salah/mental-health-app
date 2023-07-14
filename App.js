@@ -23,7 +23,7 @@ const MyTheme = {
   dark: false,
   colors: {
     background: "white",
-    card: "white",
+    card: "#F5FFFA",
     primary: "black",
     text: "black",
     border: "black",

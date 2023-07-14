@@ -1,32 +1,7 @@
 import { Image, StyleSheet, Text, TouchableOpacity, View, ImageBackground } from 'react-native';
 import React from 'react';
 
-const Result = ({resetQuiz}) => {
-
-  const categories = [
-    {
-      category: 'Both anger and anxiety',
-      description: 'According to the information provided, our model suggests that you are experiencing symptoms related to both anger and anxiety.',
-      suggestion: 'all'
-    },
-    {
-      category: 'Neither anger nor anxiety',
-      description: "According to our model's evaluation, it indicates that you are not exhibiting symptoms of either anger or anxiety.",
-      suggestion: 'exercise'
-    },
-    {
-      category: 'Anger Only',
-      description: "According to our model's analysis, it predicts that you are currently experiencing symptoms related to anger.",
-      suggestion: 'all'
-    },
-    {
-      category: 'Anxiety Only',
-      description: "Based on the data processed by our model, it indicates that you are likely facing symptoms associated with anxiety.",
-      suggestion: 'all'
-    },
-  ]
-
-  const [prediction, setPrediction] = React.useState(categories[1]);
+const Result = ({prediction, resetQuiz}) => {
 
   return (
     <View style={styles.container}>

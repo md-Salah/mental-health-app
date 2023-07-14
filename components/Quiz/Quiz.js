@@ -1,74 +1,71 @@
-import { TouchableOpacity, StyleSheet, Button, Text, View } from "react-native";
+import { TouchableOpacity, StyleSheet, Button, Text, View, ImageBackground, ScrollView } from "react-native";
+import Icon from 'react-native-vector-icons/FontAwesome';
 import React, { useState } from "react";
-import {qtn} from './questions'
+import { qtn, categories } from './questions'
 import Result from "../Result/Result";
 
 const Quiz = () => {
 
-  const [questions, setQuestions] = useState(qtn);
-  const [counter, setCounter] = useState(0);
-  const [result, setResult] = useState(false);
 
-  const onPress = ({ title, value }) => {
-    let updatedQuestions = questions.map((q) => {
-      if (q.title === title) q.selected = value;
+  const [questions, setQuestions] = useState(qtn);
+  const [prediction, setPrediction] = useState(categories[1]);
+  const [result, setResult] = useState(false);
+  const [err, setErr] = useState(null);
+
+  const handleOptionPress = ({ title, value }) => {
+    const updatedQuestions = questions.map((q) => {
+      if (q.title === title) {
+        return { ...q, selected: value };
+      }
       return q;
     });
     setQuestions(updatedQuestions);
-    setCounter((count) => count + 1);
-
-    if (counter === questions.length - 1) {
-      setResult(true);
-      // Send user answers to server for applying machine learning
-      // console.log(questions);
-    }
   };
+
+  const handleSubmit = () => {
+    const hasUnansweredQuestion = questions.some((q) => q.selected === '');
+    if (hasUnansweredQuestion) {
+      setErr('Please select an option for all questions.');
+      return;
+    }
+    else {
+      setErr(null);
+      setResult(true);
+    }
+  }
 
   const resetQuiz = () => {
     setQuestions(qtn);
-    setCounter(0);
     setResult(false);
+    setErr(null);
   }
 
   const QuestionCard = ({ question }) => {
     return (
       <View style={styles.card}>
-        {/* Question */}
-        <View style={styles.top}>
-          <Text style={styles.question}>{question.title}</Text>
-        </View>
+        <ImageBackground source={require('../../images/result-bg.jpg')} style={styles.hospitalItem}>
 
-        {/* Choose Option */}
-        <View style={styles.middle}>
-          {question.options.map((op) => (
-            <TouchableOpacity
-              style={styles.option}
-              key={op}
-              onPress={() => onPress({ title: question.title, value: op })}
-            >
-              <Text style={styles.optionText}>{op}</Text>
-            </TouchableOpacity>
-          ))}
-        </View>
-
-        <View style={styles.bottom}>
-          {/* Question Counter */}
-          <View>
-            <Text style={styles.counter}>
-              {counter + " / " + questions.length}
-            </Text>
+          {/* Question */}
+          <View style={styles.top}>
+            <Text style={styles.question}>{question.title}</Text>
           </View>
 
-          {/* Skip Button - Optional question */}
-          {!question.required && (
-            <TouchableOpacity
-              style={styles.skipBtn}
-              onPress={() => onPress({ title: question.title, value: "" })}
-            >
-              <Text style={{ color: "#800000", fontWeight: "bold" }}>Skip</Text>
-            </TouchableOpacity>
-          )}
-        </View>
+          {/* Choose Option */}
+          <View style={styles.middle}>
+            {question.options.map((op) => (
+              <TouchableOpacity
+                style={[styles.option, question.selected === op && styles.selectedOption]}
+                key={op}
+                onPress={() => handleOptionPress({ title: question.title, value: op })}
+              >
+                <Text style={styles.optionText}>{op}</Text>
+                {question.selected === op && (
+                  <Icon name="check-circle" size={20} color="white" style={styles.checkIcon} />
+                )}
+              </TouchableOpacity>
+            ))}
+          </View>
+        </ImageBackground>
       </View>
     );
   };
@@ -76,9 +73,25 @@ const Quiz = () => {
   return (
     <View style={styles.container}>
       {result ? (
-        <Result resetQuiz={resetQuiz} />
+        <Result prediction={prediction} resetQuiz={resetQuiz} />
       ) : (
-        <QuestionCard question={questions[counter]} />
+        <ScrollView style={styles.container}>
+          {
+            questions.map((question) => (
+              <QuestionCard key={question.title} question={question} />
+            ))
+          }
+          {/* Error */}
+          {err && <Text style={styles.errText}>{err}</Text>}
+
+          {/* Submit Button */}
+          <TouchableOpacity
+            style={styles.submitBtn}
+            onPress={handleSubmit}
+          >
+            <Text style={styles.optionText}>Submit</Text>
+          </TouchableOpacity>
+        </ScrollView>
       )}
     </View>
   );
@@ -88,68 +101,60 @@ export default Quiz;
 
 const styles = StyleSheet.create({
   container: {
-    height: "100%",
   },
   card: {
-    marginVertical: "10%",
-    marginHorizontal: 10,
-    backgroundColor: "#800000",
     borderRadius: 5,
+    marginVertical: 10,
+    marginHorizontal: 10,
+  },
+  hospitalItem: {
     padding: 20,
-    height: "90%",
+    borderRadius: 5,
+    overflow: 'hidden',
   },
   top: {
-    height: "20%",
-    paddingVertical: 5,
   },
   question: {
-    marginTop: 10,
     fontSize: 22,
-    color: "#fff",
+    color: "black",
     textAlign: "center",
     fontWeight: "bold",
-    letterSpacing: 1,
-    lineHeight: 30,
   },
   middle: {
-    height: "60%",
-    paddingTop: 50,
+    marginVertical: 10,
+    marginHorizontal: 20,
   },
   options: {
-    flex: 1,
     flexDirection: "column",
     justifyContent: "space-between",
   },
   option: {
-    backgroundColor: "white",
+    backgroundColor: "#FC734D",
     marginVertical: 6,
     paddingVertical: 12,
     borderRadius: 5,
+    flexDirection: "row",
+  },
+  selectedOption: {
+    backgroundColor: "gray",
   },
   optionText: {
     textAlign: "center",
     fontSize: 16,
     fontWeight: "500",
-    color: "#800000",
+    color: 'white',
+    width: "100%",
   },
-  bottom: {
-    height: "20%",
-    flex: 1,
-    justifyContent: "space-around",
-    alignItems: "center",
+  checkIcon: {
+    marginLeft: '-15%',
   },
-  counter: {
-    color: "white",
-    fontSize: 16,
-    textAlign: "center",
-  },
-  skipBtn: {
-    width: "40%",
-    backgroundColor: "white",
-    paddingVertical: 10,
-    paddingHorizontal: 30,
+  errText: { color: 'red', textAlign: 'center', marginTop: 10, fontWeight: 'bold', fontSize: 16, textTransform: 'capitalize' },
+  submitBtn: {
+    marginHorizontal: 10,
+    marginTop: 20,
+    marginBottom: 40,
+    backgroundColor: 'green',
+    paddingVertical: 12,
     borderRadius: 5,
-    alignItems: "center",
-    marginBottom: 10,
   },
 });
