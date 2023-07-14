@@ -1,8 +1,7 @@
 import "react-native-gesture-handler";
 import React, { useEffect, useState } from "react";
-import { StyleSheet } from "react-native";
-import { createDrawerNavigator } from "@react-navigation/drawer";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { StyleSheet, View, Text, Image } from "react-native";
+import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
@@ -19,6 +18,7 @@ import AppointmentPendingList from "./pages/AppointmentPendingList";
 import Exercise from "./pages/Exercise";
 import SmartHealth from "./pages/SmartHealth";
 
+
 const MyTheme = {
   dark: false,
   colors: {
@@ -31,13 +31,26 @@ const MyTheme = {
   },
 };
 
+const CustomDrawerContent = (props) => {
+  return (
+    <DrawerContentScrollView {...props}>
+      {/* Custom header component */}
+      <View style={styles.header}>
+        <Image source={require('./images/logo.jpg')} style={styles.logo} />
+        <Text style={styles.appName}>Mental Health App</Text>
+      </View>
+      {/* Render the rest of the drawer items */}
+      <DrawerItemList {...props} />
+    </DrawerContentScrollView>
+  );
+};
+
 const Drawer = createDrawerNavigator();
-const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer theme={MyTheme}>
-      <Drawer.Navigator useLegacyImplementation initialRouteName="Logout">
+      <Drawer.Navigator useLegacyImplementation initialRouteName="Logout" drawerContent={CustomDrawerContent}>
         <Drawer.Screen name="Home" component={Home} />
         <Drawer.Screen name="Anger & Anxiety Assessment" component={SelfTest} />
         <Drawer.Screen name="Doctors" component={Doctors} />
@@ -68,5 +81,21 @@ const App = () => {
 export default App;
 
 const styles = StyleSheet.create({
-  container: {},
+  header: {
+    padding: 16,
+    justifyContent: 'flex-start',
+    flexDirection: 'row',
+    height: 80,
+  },
+  logo: {
+    width: 50,
+    aspectRatio: 1,
+  },
+  appName: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#333',
+    textAlignVertical: 'center',
+    marginLeft: 10,
+  },
 });
