@@ -15,6 +15,7 @@ import Doctors from "./pages/Doctors";
 import LoginRegistration from "./pages/LoginRegistration";
 import EmergencyContactPage from "./pages/Emergency";
 import AppointmentPendingList from "./pages/AppointmentPendingList";
+import Exercise from "./pages/Exercise";
 
 const MyTheme = {
   dark: false,
@@ -43,6 +44,7 @@ const App = () => {
         <Drawer.Screen name="DoctorDetails" component={DoctorDetails} />
         <Drawer.Screen name="Emergency Contact" component={EmergencyContactPage} />
         <Drawer.Screen name="AppointmentPendingList" component={AppointmentPendingList} />
+        <Drawer.Screen name="Exercise" component={Exercise} />
         <Drawer.Screen name="About" component={About} />
         <Drawer.Screen
           name="Logout"
