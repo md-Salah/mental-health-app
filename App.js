@@ -53,21 +53,21 @@ const App = () => {
       <Drawer.Navigator useLegacyImplementation initialRouteName="Logout" drawerContent={CustomDrawerContent}>
         <Drawer.Screen name="Home" component={Home} />
         <Drawer.Screen name="Anger & Anxiety Assessment" component={SelfTest} />
-        <Drawer.Screen name="Doctors" component={Doctors} />
-        <Drawer.Screen name="Hospital List" component={HospitalList} />
-        <Drawer.Screen name="Doctor Details" component={DoctorDetails} />
+        <Drawer.Screen name="Physical Exercise" component={Exercise} />
         <Drawer.Screen name="Readings" component={ReadArticle} />
-        <Drawer.Screen name="SmartHealth" component={SmartHealth} />
+        <Drawer.Screen name="Doctors" component={Doctors} />
+        <Drawer.Screen name="Hospitals" component={HospitalList} />
+        {/* <Drawer.Screen name="Doctor Details" component={DoctorDetails} /> */}
+        {/* <Drawer.Screen name="SmartHealth" component={SmartHealth} /> */}
         <Drawer.Screen
           name="Emergency Contact"
           component={EmergencyContactPage}
         />
-        <Drawer.Screen
+        {/* <Drawer.Screen
           name="AppointmentPendingList"
           component={AppointmentPendingList}
-        />
-        <Drawer.Screen name="Physical Exercise" component={Exercise} />
-        <Drawer.Screen name="About" component={About} />
+        /> */}
+        <Drawer.Screen name="About US" component={About} />
         <Drawer.Screen
           name="Logout"
           component={LoginRegistration}

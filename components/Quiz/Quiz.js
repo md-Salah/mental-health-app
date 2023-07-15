@@ -6,15 +6,31 @@ import Result from "../Result/Result";
 
 const Quiz = () => {
 
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     try {
+  //       const response = await fetch("http://127.0.0.1:8000/");
+  //       if (!response.ok) {
+  //         throw new Error(`Network response was not OK: ${response.status}`);
+  //       }
+  //       const data = await response.json();
+  //       console.log(data);
+  //     } catch (error) {
+  //       console.error('Error fetching data:', error);
+  //     }
+  //   }
+  //   fetchData();
+  // }, []);
+
 
   const [questions, setQuestions] = useState(qtn);
   const [prediction, setPrediction] = useState(categories[1]);
   const [result, setResult] = useState(false);
   const [err, setErr] = useState(null);
 
-  const handleOptionPress = ({ title, value }) => {
+  const handleOptionPress = ({ name, value }) => {
     const updatedQuestions = questions.map((q) => {
-      if (q.title === title) {
+      if (q.name === name) {
         return { ...q, selected: value };
       }
       return q;
@@ -23,15 +39,27 @@ const Quiz = () => {
   };
 
   const handleSubmit = () => {
-    const hasUnansweredQuestion = questions.some((q) => q.selected === '');
-    if (hasUnansweredQuestion) {
-      setErr('Please select an option for all questions.');
-      return;
-    }
-    else {
+
+    let features = {};
+    let isError = false;
+
+    questions.forEach((question) => {
+      if (question.selected !== null) {
+        features[question.name] = question.selected;
+      }
+      else {
+        isError = true;
+        setErr(`Please select an option for the question "${question.text}"`);
+      }
+    });
+
+    if(!isError){
+      // Get result
       setErr(null);
       setResult(true);
     }
+
+    // console.log(features);
   }
 
   const resetQuiz = () => {
@@ -47,19 +75,19 @@ const Quiz = () => {
 
           {/* Question */}
           <View style={styles.top}>
-            <Text style={styles.question}>{question.title}</Text>
+            <Text style={styles.question}>{question.text}</Text>
           </View>
 
           {/* Choose Option */}
           <View style={styles.middle}>
             {question.options.map((op) => (
               <TouchableOpacity
-                style={[styles.option, question.selected === op && styles.selectedOption]}
-                key={op}
-                onPress={() => handleOptionPress({ title: question.title, value: op })}
+                style={[styles.option, question.selected === op.value && styles.selectedOption]}
+                key={op.text}
+                onPress={() => handleOptionPress({ name: question.name, value: op.value })}
               >
-                <Text style={styles.optionText}>{op}</Text>
-                {question.selected === op && (
+                <Text style={styles.optionText}>{op.text}</Text>
+                {question.selected === op.value && (
                   <Icon name="check-circle" size={20} color="white" style={styles.checkIcon} />
                 )}
               </TouchableOpacity>
@@ -78,7 +106,7 @@ const Quiz = () => {
         <ScrollView style={styles.container}>
           {
             questions.map((question) => (
-              <QuestionCard key={question.title} question={question} />
+              <QuestionCard key={question.name} question={question} />
             ))
           }
           {/* Error */}
@@ -119,6 +147,7 @@ const styles = StyleSheet.create({
     color: "black",
     textAlign: "center",
     fontWeight: "bold",
+    textTransform: "capitalize",
   },
   middle: {
     marginVertical: 10,
@@ -148,7 +177,11 @@ const styles = StyleSheet.create({
   checkIcon: {
     marginLeft: '-15%',
   },
-  errText: { color: 'red', textAlign: 'center', marginTop: 10, fontWeight: 'bold', fontSize: 16, textTransform: 'capitalize' },
+  errText: {
+    color: 'red',
+    marginHorizontal: 10,
+    textAlign: 'center', marginTop: 10, fontWeight: 'bold', fontSize: 16, textTransform: 'capitalize'
+  },
   submitBtn: {
     marginHorizontal: 10,
     marginTop: 20,
