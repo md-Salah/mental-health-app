@@ -8,7 +8,6 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Home from "./pages/Home";
 import SelfTest from "./pages/SelfTest";
 import About from "./pages/About";
-import DoctorDetails from "./pages/DoctorDetails";
 import Doctors from "./pages/Doctors";
 import LoginRegistration from "./pages/LoginRegistration";
 import EmergencyContactPage from "./pages/Emergency";

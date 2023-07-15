@@ -10,15 +10,23 @@ import {
 import React, { useState } from "react";
 import { doctors } from "./doctorsData";
 import Doctor from "./Doctor";
+import DoctorDetails from "./DoctorDetails";
 
 const DoctorsComponent = () => {
+  const [viewDoctor, setViewDoctor] = useState(null);
 
   return (
-    <ScrollView style={styles.container}>
-      {doctors.map((doctor, index) => (
-        <Doctor doctor={doctor} key={index} />
-      ))}
-    </ScrollView>
+    <View>
+
+      {viewDoctor ?
+        (<DoctorDetails doctor={viewDoctor} setViewDoctor={setViewDoctor} />) :
+        (<ScrollView style={styles.container}>
+          {doctors.map((doctor, index) => (
+            <Doctor key={index} doctor={doctor} setViewDoctor={setViewDoctor} />
+          ))}
+        </ScrollView>)
+      }
+    </View>
   );
 };
 
@@ -27,6 +35,7 @@ export default DoctorsComponent;
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 10,
-    marginBottom: 5,
+    paddingBottom: 10,
+    backgroundColor: '#f1f3f7',
   },
 });
