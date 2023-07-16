@@ -6,26 +6,30 @@ import Result from "../Result/Result";
 
 const Quiz = () => {
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       const response = await fetch("http://127.0.0.1:8000/");
-  //       if (!response.ok) {
-  //         throw new Error(`Network response was not OK: ${response.status}`);
-  //       }
-  //       const data = await response.json();
-  //       console.log(data);
-  //     } catch (error) {
-  //       console.error('Error fetching data:', error);
-  //     }
-  //   }
-  //   fetchData();
-  // }, []);
+  const getResult = async (features) => {
+    try {
+      const response = await fetch('http://13.233.2.223:5021/predict', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(features),
+      });
 
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Error:', error);
+      throw error;
+    }
+  }
 
   const [questions, setQuestions] = useState(qtn);
-  const [prediction, setPrediction] = useState(categories[1]);
-  const [result, setResult] = useState(false);
+  const [prediction, setPrediction] = useState(null);
   const [err, setErr] = useState(null);
 
   const handleOptionPress = ({ name, value }) => {
@@ -38,11 +42,11 @@ const Quiz = () => {
     setQuestions(updatedQuestions);
   };
 
-  const handleSubmit = () => {
-
+  const handleSubmit = async() => {
+    
     let features = {};
     let isError = false;
-
+    
     questions.forEach((question) => {
       if (question.selected !== null) {
         features[question.name] = question.selected;
@@ -52,11 +56,19 @@ const Quiz = () => {
         setErr(`Please select an option for the question "${question.text}"`);
       }
     });
-
-    if(!isError){
+    
+    if (!isError) {
       // Get result
-      setErr(null);
-      setResult(true);
+      let data = await getResult(features);
+      console.log(data);
+      if (data.msg === 'success') {
+        setErr(null);
+        setPrediction(categories[data.prediction]);
+      }
+      else{
+        setPrediction(null)
+        setErr('Having trouble to connect classifier model. Please try again.')
+      }
     }
 
     // console.log(features);
@@ -64,7 +76,7 @@ const Quiz = () => {
 
   const resetQuiz = () => {
     setQuestions(qtn);
-    setResult(false);
+    setPrediction(null);
     setErr(null);
   }
 
@@ -100,7 +112,7 @@ const Quiz = () => {
 
   return (
     <View style={styles.container}>
-      {result ? (
+      {prediction ? (
         <Result prediction={prediction} resetQuiz={resetQuiz} />
       ) : (
         <ScrollView style={styles.container}>
