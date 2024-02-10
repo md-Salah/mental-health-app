@@ -56,18 +56,18 @@ Through user feedback and assessment, the app's features are evaluated to showca
 8. **Logout & Feedback Interface**
 
    | Logout                                  ||
-   | --------------------------------------- ||
-   | ![Find Doctors](screenshots/logout.png) ||
+   | --------------------------------------- |------------|
+   | ![Find Doctors](screenshots/logout.png) | empty |
 
 ## How to Run the App
 
 ```bash
 git clone https://github.com/your-username/mental-health-app.git
 
- cd mental-health-app
+cd mental-health-app
 
- npm install
+npm install
 
- npm start
+npm start
 
 ```
