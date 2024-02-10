@@ -43,9 +43,9 @@ Through user feedback and assessment, the app's features are evaluated to showca
    | ![Article 1](screenshots/readings.png) | ![Article 2](screenshots/readings-2.png) |
 
 6. **Find Doctors Interface**
-   | Doctor ||
-   | --------------------------------------- ||
-   | ![Find Doctors](screenshots/doctors.png) ||
+   | Doctor |
+   | --------------------------------------- |
+   | <img src="screenshots/doctors.png" width="50%"> |
 
 7. **Find Hospitals Interface**
 
