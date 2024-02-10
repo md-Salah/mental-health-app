@@ -16,48 +16,48 @@ Through user feedback and assessment, the app's features are evaluated to showca
 
    | Login                                      | Register                                      |
    | ------------------------------------------ | --------------------------------------------- |
-   | ![Register/Login 1](screenshots/login.png) | ![Register/Login 2](screenshots/register.png) |
+   | <img src="screenshots/login.png" width="300" height="500"> | <img src="screenshots/register.png" width="300" height="500"> |
 
 2. **Home & Navigation Interface**
 
    | Home                                       | Navigation                                       |
    | ------------------------------------------ | ------------------------------------------------ |
-   | ![Home/Navigation 1](screenshots/home.png) | ![Home/Navigation 2](screenshots/navigation.png) |
+   | <img src="screenshots/home.png" width="300" height="500"> | <img src="screenshots/navigation.png" width="300" height="500"> |
 
 3. **Anger & Anxiety Assessment Interface**
 
    | Assessment                                  | Assessment                                    | Outcome                                   |
    | ------------------------------------------- | --------------------------------------------- | ----------------------------------------- |
-   | ![Assessment 1](screenshots/assessment.png) | ![Assessment 2](screenshots/assessment-2.png) | ![Assessment 3](screenshots/result-1.png) |
+   | <img src="screenshots/assessment.png" width="300" height="500"> | <img src="screenshots/assessment-2.png" width="300" height="500"> | <img src="screenshots/result-1.png" width="300" height="500"> |
 
 4. **Physical Exercise Interface**
 
    | Exercise                                         |
    | ------------------------------------------------ |
-   | <img src="screenshots/exercise.png" width="50%"> |
+   | <img src="screenshots/exercise.png" width="300" height="500"> |
 
 5. **Article Readings Interface**
 
    | Reading 1                              | Reading 2                                |
    | -------------------------------------- | ---------------------------------------- |
-   | ![Article 1](screenshots/readings.png) | ![Article 2](screenshots/readings-2.png) |
+   | <img src="screenshots/readings.png" width="300" height="500"> | <img src="screenshots/readings-2.png" width="300" height="500"> |
 
 6. **Find Doctors Interface**
    | Doctor | Doctor Details |
    | --------------------------------------- | --------------------------------------- |
-   | <img src="screenshots/doctors.png" width="50%"> | <img src="screenshots/doctors-details.png" width="50%"> |
+   | <img src="screenshots/doctors.png" width="300" height="500"> | <img src="screenshots/doctor-details.png" width="300" height="500"> |
 
 7. **Find Hospitals Interface**
 
    | Hospitals                                      | Google Map                                             |
    | ---------------------------------------------- | ------------------------------------------------------ |
-   | ![Find Hospitals 1](screenshots/hospitals.png) | ![Find Hospitals 2](screenshots/hospital-location.png) |
+   | <img src="screenshots/hospitals.png" width="300" height="500"> | <img src="screenshots/hospital-location.png" width="300" height="500"> |
 
 8. **Logout & Feedback Interface**
 
    | Logout                                         |
    | ---------------------------------------------- |
-   | <img src="screenshots/logout.png" width="50%"> |
+   | <img src="screenshots/logout.png" width="300" height="500"> |
 
 ## How to Run the App
 
