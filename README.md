@@ -14,59 +14,60 @@ Through user feedback and assessment, the app's features are evaluated to showca
 
 1. **Register and Login User Interface**
 
-   | Screenshot 1                               | Screenshot 2                                  |
+   | Login                                      | Register                                      |
    | ------------------------------------------ | --------------------------------------------- |
    | ![Register/Login 1](screenshots/login.png) | ![Register/Login 2](screenshots/register.png) |
 
 2. **Home & Navigation Interface**
 
-   | Screenshot 1                               | Screenshot 2                                     |
+   | Home                                       | Navigation                                       |
    | ------------------------------------------ | ------------------------------------------------ |
    | ![Home/Navigation 1](screenshots/home.png) | ![Home/Navigation 2](screenshots/navigation.png) |
 
 3. **Anger & Anxiety Assessment Interface**
 
-   | Screenshot 1                                | Screenshot 2                                  | Screenshot 3                                  |
-   | ------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-   | ![Assessment 1](screenshots/assessment.png) | ![Assessment 2](screenshots/assessment-2.png) | ![Assessment 3](screenshots/assessment-3.png) |
+   | Assessment                                  | Assessment                                    | Outcome 3                                 |
+   | ------------------------------------------- | --------------------------------------------- | ----------------------------------------- |
+   | ![Assessment 1](screenshots/assessment.png) | ![Assessment 2](screenshots/assessment-2.png) | ![Assessment 3](screenshots/result-1.png) |
 
 4. **Physical Exercise Interface**
 
-   | Screenshot 1                            | Screenshot 2                            |
-   | --------------------------------------- | --------------------------------------- |
-   | ![Exercise 1](screenshots/exercise.png) | ![Exercise 2](screenshots/exercise.png) |
+   | Exercise                                |
+   | --------------------------------------- |
+   | ![Exercise 1](screenshots/exercise.png) |
 
 5. **Article Readings Interface**
 
-   | Screenshot 1                           | Screenshot 2                             |
+   | Reading 1                              | Reading 2                                |
    | -------------------------------------- | ---------------------------------------- |
    | ![Article 1](screenshots/readings.png) | ![Article 2](screenshots/readings-2.png) |
 
 6. **Find Doctors Interface**
-
-   - [Find Doctors](screenshots/doctors.png)
+   | Doctor |
+   | --------------------------------------- |
+   | ![Find Doctors](screenshots/doctors.png) |
 
 7. **Find Hospitals Interface**
 
-   | Screenshot 1                                   | Screenshot 2                                           |
+   | Hospitals                                      | Google Map                                             |
    | ---------------------------------------------- | ------------------------------------------------------ |
    | ![Find Hospitals 1](screenshots/hospitals.png) | ![Find Hospitals 2](screenshots/hospital-location.png) |
 
 8. **Logout & Feedback Interface**
 
-   - [Find Doctors](screenshots/logout.png)
+   | Logout                                  |
+   | --------------------------------------- |
+   | ![Find Doctors](screenshots/logout.png) |
 
 ## How to Run the App
 
-1. Clone the repository:
+```bash
+git clone https://github.com/your-username/mental-health-app.git
 
-   ```bash
-   git clone https://github.com/your-username/mental-health-app.git
+ cd mental-health-app
 
-    cd mental-health-app
+ npm install
 
-    npm install
+ npm start
 
-    npm start
-
-   ```
+```
