@@ -32,9 +32,9 @@ Through user feedback and assessment, the app's features are evaluated to showca
 
 4. **Physical Exercise Interface**
 
-   | Exercise ||
-   | --------------------------------------- ||
-   | <img src="screenshots/exercise.png" width="50%"> ||
+   | Exercise                                         |
+   | ------------------------------------------------ |
+   | <img src="screenshots/exercise.png" width="50%"> |
 
 5. **Article Readings Interface**
 
