@@ -32,9 +32,9 @@ Through user feedback and assessment, the app's features are evaluated to showca
 
 4. **Physical Exercise Interface**
 
-   | Exercise                                ||
+   | Exercise ||
    | --------------------------------------- ||
-   | ![Exercise 1](screenshots/exercise.png) ||
+   | <img src="screenshots/exercise.png" width="50%"> ||
 
 5. **Article Readings Interface**
 
@@ -55,9 +55,9 @@ Through user feedback and assessment, the app's features are evaluated to showca
 
 8. **Logout & Feedback Interface**
 
-   | Logout                                  ||
-   | --------------------------------------- |------------|
-   | ![Find Doctors](screenshots/logout.png) | empty |
+   | Logout                                         |
+   | ---------------------------------------------- |
+   | <img src="screenshots/logout.png" width="50%"> |
 
 ## How to Run the App
 
