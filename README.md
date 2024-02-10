@@ -26,15 +26,15 @@ Through user feedback and assessment, the app's features are evaluated to showca
 
 3. **Anger & Anxiety Assessment Interface**
 
-   | Assessment                                  | Assessment                                    | Outcome 3                                 |
+   | Assessment                                  | Assessment                                    | Outcome                                   |
    | ------------------------------------------- | --------------------------------------------- | ----------------------------------------- |
    | ![Assessment 1](screenshots/assessment.png) | ![Assessment 2](screenshots/assessment-2.png) | ![Assessment 3](screenshots/result-1.png) |
 
 4. **Physical Exercise Interface**
 
-   | Exercise                                |
-   | --------------------------------------- |
-   | ![Exercise 1](screenshots/exercise.png) |
+   | Exercise                                ||
+   | --------------------------------------- ||
+   | ![Exercise 1](screenshots/exercise.png) ||
 
 5. **Article Readings Interface**
 
@@ -43,9 +43,9 @@ Through user feedback and assessment, the app's features are evaluated to showca
    | ![Article 1](screenshots/readings.png) | ![Article 2](screenshots/readings-2.png) |
 
 6. **Find Doctors Interface**
-   | Doctor |
-   | --------------------------------------- |
-   | ![Find Doctors](screenshots/doctors.png) |
+   | Doctor ||
+   | --------------------------------------- ||
+   | ![Find Doctors](screenshots/doctors.png) ||
 
 7. **Find Hospitals Interface**
 
@@ -55,9 +55,9 @@ Through user feedback and assessment, the app's features are evaluated to showca
 
 8. **Logout & Feedback Interface**
 
-   | Logout                                  |
-   | --------------------------------------- |
-   | ![Find Doctors](screenshots/logout.png) |
+   | Logout                                  ||
+   | --------------------------------------- ||
+   | ![Find Doctors](screenshots/logout.png) ||
 
 ## How to Run the App
 
