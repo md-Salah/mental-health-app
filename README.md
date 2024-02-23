@@ -77,7 +77,7 @@ npm start
 1. **Supervisor:**
    [Dr. Mahfuzulhoq Chowdhury](https://www.cuet.ac.bd/members/511)  
    Associate Professor  
-   Department of Computer Science & Engineering
+   Department of Computer Science & Engineering, CUET
 
 2. [Mohammad Salah Uddin](https://github.com/md-Salah)
 
