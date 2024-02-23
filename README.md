@@ -71,3 +71,15 @@ npm install
 npm start
 
 ```
+
+# Credit
+
+1. **Supervisor:**
+   [Dr. Mahfuzulhoq Chowdhury](https://www.cuet.ac.bd/members/511)  
+   Associate Professor  
+   Department of Computer Science & Engineering
+
+2. [Mohammad Salah Uddin](https://github.com/md-Salah)
+
+3. **UI Design Contributor:**  
+   [Suranjan Sarkar](https://github.com/suru1849)
