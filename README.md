@@ -16,48 +16,48 @@ Through user feedback and assessment, the app's features are evaluated to showca
 
    | Login                                                      | Register                                                      |
    | ---------------------------------------------------------- | ------------------------------------------------------------- |
-   | <img src="screenshots/login.png" style="max-width:200px"> | <img src="screenshots/register.png" style="max-width:200px"> |
+   | <img src="screenshots/login.png" style="width:200px"> | <img src="screenshots/register.png" style="width:200px"> |
 
 2. **Home & Navigation Interface**
 
    | Home                                                      | Navigation                                                      |
    | --------------------------------------------------------- | --------------------------------------------------------------- |
-   | <img src="screenshots/home.png" style="max-width:200px"> | <img src="screenshots/navigation.png" style="max-width:200px"> |
+   | <img src="screenshots/home.png" style="width:200px"> | <img src="screenshots/navigation.png" style="width:200px"> |
 
 3. **Anger & Anxiety Assessment Interface**
 
    | Assessment Page 1                                               | Outcome                                                       |
    | --------------------------------------------------------------- | ------------------------------------------------------------- |
-   | <img src="screenshots/assessment.png" style="max-width:200px"> | <img src="screenshots/result-1.png" style="max-width:200px"> |
+   | <img src="screenshots/assessment.png" style="width:200px"> | <img src="screenshots/result-1.png" style="width:200px"> |
 
 4. **Physical Exercise Interface**
 
    | Exercise                                                      |
    | ------------------------------------------------------------- |
-   | <img src="screenshots/exercise.png" style="max-width:200px"> |
+   | <img src="screenshots/exercise.png" style="width:200px"> |
 
 5. **Article Readings Interface**
 
    | Reading 1                                                     | Reading 2                                                       |
    | ------------------------------------------------------------- | --------------------------------------------------------------- |
-   | <img src="screenshots/readings.png" style="max-width:200px"> | <img src="screenshots/readings-2.png" style="max-width:200px"> |
+   | <img src="screenshots/readings.png" style="width:200px"> | <img src="screenshots/readings-2.png" style="width:200px"> |
 
 6. **Find Doctors Interface**
    | Doctor | Doctor Details |
    | --------------------------------------- | --------------------------------------- |
-   | <img src="screenshots/doctors.png" style="max-width:200px"> | <img src="screenshots/doctor-details.png" style="max-width:200px"> |
+   | <img src="screenshots/doctors.png" style="width:200px"> | <img src="screenshots/doctor-details.png" style="width:200px"> |
 
 7. **Find Hospitals Interface**
 
    | Hospitals                                                      | Google Map                                                             |
    | -------------------------------------------------------------- | ---------------------------------------------------------------------- |
-   | <img src="screenshots/hospitals.png" style="max-width:200px"> | <img src="screenshots/hospital-location.png" style="max-width:200px"> |
+   | <img src="screenshots/hospitals.png" style="width:200px"> | <img src="screenshots/hospital-location.png" style="width:200px"> |
 
 8. **Logout & Feedback Interface**
 
    | Logout                                                      |
    | ----------------------------------------------------------- |
-   | <img src="screenshots/logout.png" style="max-width:200px"> |
+   | <img src="screenshots/logout.png" style="width:200px"> |
 
 ## How to Run the App
 
