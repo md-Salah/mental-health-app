@@ -16,48 +16,48 @@ Through user feedback and assessment, the app's features are evaluated to showca
 
    | Login                                                      | Register                                                      |
    | ---------------------------------------------------------- | ------------------------------------------------------------- |
-   | <img src="screenshots/login.png" height="437"> | <img src="screenshots/register.png" height="437"> |
+   | <img src="screenshots/login.png" style="max-height: 437px;"> | <img src="screenshots/register.png" style="max-height: 437px;"> |
 
 2. **Home & Navigation Interface**
 
    | Home                                                      | Navigation                                                      |
    | --------------------------------------------------------- | --------------------------------------------------------------- |
-   | <img src="screenshots/home.png" height="437"> | <img src="screenshots/navigation.png" height="437"> |
+   | <img src="screenshots/home.png" style="max-height: 437px;"> | <img src="screenshots/navigation.png" style="max-height: 437px;"> |
 
 3. **Anger & Anxiety Assessment Interface**
 
    | Assessment Page 1                                               | Outcome                                                       |
    | --------------------------------------------------------------- | ------------------------------------------------------------- |
-   | <img src="screenshots/assessment.png" height="437"> | <img src="screenshots/result-1.png" height="437"> |
+   | <img src="screenshots/assessment.png" style="max-height: 437px;"> | <img src="screenshots/result-1.png" style="max-height: 437px;"> |
 
 4. **Physical Exercise Interface**
 
    | Exercise                                                      |
    | ------------------------------------------------------------- |
-   | <img src="screenshots/exercise.png" height="437"> |
+   | <img src="screenshots/exercise.png" style="max-height: 437px;"> |
 
 5. **Article Readings Interface**
 
    | Reading 1                                                     | Reading 2                                                       |
    | ------------------------------------------------------------- | --------------------------------------------------------------- |
-   | <img src="screenshots/readings.png" height="437"> | <img src="screenshots/readings-2.png" height="437"> |
+   | <img src="screenshots/readings.png" style="max-height: 437px;"> | <img src="screenshots/readings-2.png" style="max-height: 437px;"> |
 
 6. **Find Doctors Interface**
    | Doctor | Doctor Details |
    | --------------------------------------- | --------------------------------------- |
-   | <img src="screenshots/doctors.png" height="437"> | <img src="screenshots/doctor-details.png" height="437"> |
+   | <img src="screenshots/doctors.png" style="max-height: 437px;"> | <img src="screenshots/doctor-details.png" style="max-height: 437px;"> |
 
 7. **Find Hospitals Interface**
 
    | Hospitals                                                      | Google Map                                                             |
    | -------------------------------------------------------------- | ---------------------------------------------------------------------- |
-   | <img src="screenshots/hospitals.png" height="437"> | <img src="screenshots/hospital-location.png" height="437"> |
+   | <img src="screenshots/hospitals.png" style="max-height: 437px;"> | <img src="screenshots/hospital-location.png" style="max-height: 437px;"> |
 
 8. **Logout & Feedback Interface**
 
    | Logout                                                      |
    | ----------------------------------------------------------- |
-   | <img src="screenshots/logout.png" height="437"> |
+   | <img src="screenshots/logout.png" style="max-height: 437px;"> |
 
 ## How to Run the App
 
