@@ -1,12 +1,12 @@
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAtHFzLnfEkc8ylNES1kwPHmPEbaIIay_8",
-  authDomain: "mental-health-app-74436.firebaseapp.com",
-  projectId: "mental-health-app-74436",
-  storageBucket: "mental-health-app-74436.appspot.com",
-  messagingSenderId: "85912319732",
-  appId: "1:85912319732:web:6b2e9616b4bee50ccd90a1",
+  apiKey: process.env.FIREBASE_API_KEY,
+  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
